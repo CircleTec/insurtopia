@@ -1,0 +1,85 @@
+{
+    "nav": {
+        "dashboard": "ዳሽቦርድ",
+        "queue": "ወረፋዬ",
+        "policies": "ፖሊሲዎች",
+        "products": "ምርቶች",
+        "customers": "ደንበኞች",
+        "claims": "ጥያቄዎች",
+        "ruleEngine": "ደንብ ሞተር",
+        "riskReports": "የአደጋ ሪፖርቶች",
+        "performance": "አፈፃፀም",
+        "settings": "ቅንብሮች",
+        "support": "ድጋፍ",
+        "logout": "ውጣ"
+    },
+    "common": {
+        "search": "ፈልግ",
+        "filter": "አጣራ",
+        "save": "አስቀምጥ",
+        "cancel": "ሰርዝ",
+        "create": "ፍጠር",
+        "edit": "አርትዕ",
+        "delete": "ሰርዝ",
+        "duplicate": "ቅዳ",
+        "close": "ዝጋ",
+        "back": "ተመለስ",
+        "next": "ቀጣይ",
+        "status": "ሁኔታ",
+        "active": "ንቁ",
+        "inactive": "ያልገባ",
+        "draft": "ረቂቅ",
+        "loading": "በመጫን ላይ...",
+        "noResults": "ምንም ውጤት አልተገኘም",
+        "actions": "ድርጊቶች",
+        "viewAll": "ሁሉንም ይመልከቱ",
+        "export": "ላክ"
+    },
+    "dashboard": {
+        "title": "ዳሽቦርድ",
+        "pendingReview": "በግምገማ ላይ",
+        "activePolicies": "ንቁ ፖሊሲዎች",
+        "monthlyPremium": "ወርሃዊ ፕሪሚየም",
+        "claimsRatio": "የጥያቄ ምጣኔ"
+    },
+    "products": {
+        "title": "ምርቶች",
+        "newProduct": "አዲስ ምርት",
+        "productName": "የምርት ስም",
+        "category": "ምድብ",
+        "status": "ሁኔታ",
+        "published": "ታትሟል",
+        "step1": "መሰረታዊ መረጃ",
+        "step2": "ቅጽ ገንቢ",
+        "step3": "ሽፋን",
+        "step4": "ግምገማ",
+        "publish": "ምርት አትም"
+    },
+    "ruleEngine": {
+        "title": "ደንብ ሞተር",
+        "createRule": "ደንብ ፍጠር",
+        "testSimulator": "ሙከራ ማመሳያ",
+        "ruleName": "የደንብ ስም",
+        "product": "ምርት",
+        "conditions": "ሁኔታዎች",
+        "decision": "ውሳኔ",
+        "priority": "ቅድሚያ",
+        "version": "ስሪት",
+        "addCondition": "ሁኔታ ጨምር",
+        "runTest": "ሙከራ አካሂድ"
+    },
+    "claims": {
+        "title": "የጥያቄ አስተዳደር",
+        "totalClaims": "ጠቅላላ ጥያቄዎች",
+        "pendingReview": "በግምገማ ላይ",
+        "approved": "ፀድቋል",
+        "rejected": "ተቀባይነት አላገኘም"
+    },
+    "settings": {
+        "title": "ቅንብሮች",
+        "language": "ቋንቋ",
+        "languageDesc": "ተመራጭ ቋንቋዎን ይምረጡ",
+        "english": "English",
+        "amharic": "አማርኛ"
+    }
+}

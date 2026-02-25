@@ -1,0 +1,85 @@
+{
+    "nav": {
+        "dashboard": "Dashboard",
+        "queue": "My Queue",
+        "policies": "Policies",
+        "products": "Products",
+        "customers": "Customers",
+        "claims": "Claims",
+        "ruleEngine": "Rule Engine",
+        "riskReports": "Risk Reports",
+        "performance": "Performance",
+        "settings": "Settings",
+        "support": "Support",
+        "logout": "Log Out"
+    },
+    "common": {
+        "search": "Search",
+        "filter": "Filter",
+        "save": "Save",
+        "cancel": "Cancel",
+        "create": "Create",
+        "edit": "Edit",
+        "delete": "Delete",
+        "duplicate": "Duplicate",
+        "close": "Close",
+        "back": "Back",
+        "next": "Next",
+        "status": "Status",
+        "active": "Active",
+        "inactive": "Inactive",
+        "draft": "Draft",
+        "loading": "Loading...",
+        "noResults": "No results found",
+        "actions": "Actions",
+        "viewAll": "View All",
+        "export": "Export"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "pendingReview": "Pending Review",
+        "activePolicies": "Active Policies",
+        "monthlyPremium": "Monthly Premium",
+        "claimsRatio": "Claims Ratio"
+    },
+    "products": {
+        "title": "Products",
+        "newProduct": "New Product",
+        "productName": "Product Name",
+        "category": "Category",
+        "status": "Status",
+        "published": "Published",
+        "step1": "Basic Info",
+        "step2": "Form Builder",
+        "step3": "Coverage",
+        "step4": "Review",
+        "publish": "Publish Product"
+    },
+    "ruleEngine": {
+        "title": "Rule Engine",
+        "createRule": "Create Rule",
+        "testSimulator": "Test Simulator",
+        "ruleName": "Rule Name",
+        "product": "Product",
+        "conditions": "Conditions",
+        "decision": "Decision",
+        "priority": "Priority",
+        "version": "Version",
+        "addCondition": "Add Condition",
+        "runTest": "Run Test"
+    },
+    "claims": {
+        "title": "Claims Management",
+        "totalClaims": "Total Claims",
+        "pendingReview": "Pending Review",
+        "approved": "Approved",
+        "rejected": "Rejected"
+    },
+    "settings": {
+        "title": "Settings",
+        "language": "Language",
+        "languageDesc": "Choose your preferred language",
+        "english": "English",
+        "amharic": "አማርኛ"
+    }
+}
