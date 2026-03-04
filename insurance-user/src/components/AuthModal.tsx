@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Shield, Mail, Lock, Loader2 } from 'lucide-react';
+import { Shield, Mail, Lock, Loader2, AlertCircle } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 interface AuthModalProps {
   onLogin: () => void;
@@ -12,15 +13,39 @@ export default function AuthModal({ onLogin, onClose }: AuthModalProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null);
 
-    setTimeout(() => {
+    try {
+      if (isSignUp) {
+        const { error: signUpError } = await supabase.auth.signUp({
+          email,
+          password,
+          options: {
+            data: {
+              full_name: name,
+            }
+          }
+        });
+        if (signUpError) throw signUpError;
+        onLogin();
+      } else {
+        const { error: signInError } = await supabase.auth.signInWithPassword({
+          email,
+          password
+        });
+        if (signInError) throw signInError;
+        onLogin();
+      }
+    } catch (err: any) {
+      setError(err.message || 'An error occurred during authentication');
+    } finally {
       setIsLoading(false);
-      onLogin();
-    }, 1000);
+    }
   };
 
   return (
@@ -43,6 +68,13 @@ export default function AuthModal({ onLogin, onClose }: AuthModalProps) {
         <p className="text-gray-600 text-center mb-8">
           {isSignUp ? 'Join thousands of Ethiopians securing their future' : 'Sign in to manage your policies'}
         </p>
+
+        {error && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-xl flex items-start gap-3 animate-in fade-in slide-in-from-top-2">
+            <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
+            <p className="text-sm text-red-600 font-medium">{error}</p>
+          </div>
+        )}
 
         <form onSubmit={handleSubmit} className="space-y-5">
           {isSignUp && (

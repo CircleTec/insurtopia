@@ -19,7 +19,9 @@ import ProductComparison from './pages/ProductComparison';
 import AuthModal from './components/AuthModal';
 import OnboardingTour from './components/OnboardingTour';
 import CommandPalette from './components/ui/CommandPalette';
+import { useAuth } from './context/AuthContext';
 import { Product } from './types';
+import { Loader2 } from 'lucide-react';
 
 type ViewState =
   | 'LANDING'
@@ -42,11 +44,20 @@ type ViewState =
   | 'PRODUCT_COMPARISON';
 
 function App() {
+  const { user, signOut, isLoading: isAuthLoading } = useAuth();
   const [currentView, setCurrentView] = useState<ViewState>('LANDING');
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [currentApplicationId, setCurrentApplicationId] = useState<string>('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+
+  // Sync view with auth state
+  useEffect(() => {
+    if (user && currentView === 'LANDING') {
+      setCurrentView('DASHBOARD');
+    } else if (!user && currentView !== 'LANDING' && currentView !== 'AUTH' && currentView !== 'PRODUCT_CATALOG' && currentView !== 'PRODUCT_DETAIL') {
+      setCurrentView('LANDING');
+    }
+  }, [user, currentView]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -69,7 +80,6 @@ function App() {
   };
 
   const handleLogin = () => {
-    setIsAuthenticated(true);
     setCurrentView('DASHBOARD');
   };
 
@@ -77,8 +87,8 @@ function App() {
     setCurrentView('LANDING');
   };
 
-  const handleLogout = () => {
-    setIsAuthenticated(false);
+  const handleLogout = async () => {
+    await signOut();
     setCurrentView('LANDING');
   };
 
@@ -149,12 +159,25 @@ function App() {
   };
 
   const handleBackToDashboard = () => {
-    if (isAuthenticated) {
+    if (user) {
       setCurrentView('DASHBOARD');
     } else {
       setCurrentView('LANDING');
     }
   };
+
+  if (isAuthLoading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-white z-[9999]">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-16 h-16 bg-gradient-to-br from-emerald-900 to-emerald-700 rounded-2xl flex items-center justify-center shadow-lg animate-pulse">
+            <Loader2 className="w-8 h-8 text-white animate-spin" />
+          </div>
+          <p className="text-emerald-900 font-bold animate-pulse">Securing your future...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>
